@@ -42,7 +42,6 @@ class Merk extends CI_Controller
             $from = $this->uri->segment(3);
             $this->pagination->initialize($config);
             $data['merk'] = $this->Merk_model->get_all_merk($config['per_page'], $from);
-            // $data['barang'] = $this->Barang_model->get_all_barang();
 
             $data['_view'] = 'merk/index';
             if ($this->session->userdata("level") == 'admin') {
@@ -63,11 +62,13 @@ class Merk extends CI_Controller
         if (isset($_POST) && count($_POST) > 0) {
             $params = array(
                 'nm_merk' => $this->input->post('nm_merk'),
+                'id_kategori' => $this->input->post('id_kategori'),
             );
 
             $merk_id = $this->Merk_model->add_merk($params);
             redirect('merk/index');
         } else {
+            $data['kat'] = $this->Merk_model->get_all_kategori();
             $data['_view'] = 'merk/add';
             if ($this->session->userdata("level") == 'admin') {
                 $this->load->view('layouts/main', $data);
@@ -89,11 +90,13 @@ class Merk extends CI_Controller
             if (isset($_POST) && count($_POST) > 0) {
                 $params = array(
                     'nm_merk' => $this->input->post('nm_merk'),
+                    'id_kategori' => $this->input->post('id_kategori'),
                 );
 
                 $this->Merk_model->update_merk($id_merk, $params);
                 redirect('merk/index');
             } else {
+                $data['kat'] = $this->Merk_model->get_all_kategori();
                 $data['_view'] = 'merk/edit';
                 if ($this->session->userdata("level") == 'admin') {
                 $this->load->view('layouts/main', $data);

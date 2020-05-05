@@ -22,7 +22,19 @@ class Merk_model extends CI_Model
     /*
      * Get all tb_merk
      */
-    
+    function get_kategori($id_kategori)
+    {
+        $this->db->select('*');
+        $this->db->from('merk a');
+        $this->db->join('kategori b', 'b.id_kategori=a.id_kategori', 'left');
+        $this->db->like('a.nm_barang', $id_kategori);
+        $this->db->order_by('a.id_kategori', 'asc');
+        $query = $this->db->get();
+        return $query->result_array();
+
+        //    $this->db->order_by('id_barang', 'desc');
+        //    return $this->db->get('barang')->result_array();
+    }
     function data($number,$offset){
 		return $query = $this->db->get('merk',$number,$offset)->result();		
 	}
@@ -33,11 +45,19 @@ class Merk_model extends CI_Model
     
     function get_all_merk($number,$offset)
     {
+        $this->db->select('*');
+        $this->db->from('merk a');
+        $this->db->join('kategori b', 'b.id_kategori=a.id_kategori', 'left');
         $this->db->order_by('id_merk', 'desc');
         $this->db->limit($number,$offset);       
-        return $this->db->get('merk')->result_array();
+        return $this->db->get()->result_array();
     }
-        
+    
+    function get_all_kategori()
+    {
+        $this->db->order_by('nm_kategori', 'asc');
+        return $this->db->get('kategori')->result_array();
+    }
     /*
      * function to add new tb_merk
      */

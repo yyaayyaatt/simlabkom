@@ -12,13 +12,15 @@
                     <tr>
                         <th>No.</th>
                         <th>Merk</th>
+                        <th>Kategori</th>
                         <th>Actions</th>
                     </tr>
                     <?php $x = $this->uri->segment('3') + 1;
                     foreach ($merk as $t) { ?>
                         <tr>
                             <td width="5%"><?php echo $x++; ?></td>
-                            <td width="80%"><?php echo $t['nm_merk']; ?></td>
+                            <td width="40%"><?php echo $t['nm_merk']; ?></td>
+                            <td width="40%"><?php echo $t['nm_kategori']; ?></td>
                             <td width="15%">
                                 <a href="<?php echo site_url('merk/edit/' . $t['id_merk']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
                                 <?php if ($this->session->userdata("level") == 'admin') { ?>
