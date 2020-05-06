@@ -179,7 +179,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="<?php echo site_url('inventaris/index'); ?>"><i class="fa fa-map-marker"></i> Lokasi</a>
+                                <a href="<?php echo site_url('inventaris/index'); ?>"><i class="fa fa-map-marker"></i> Cari</a>
                             </li>
                             <li>
                                 <a href="<?php echo site_url('barang_masuk/index'); ?>"><i class="fa fa-arrow-circle-o-left"></i> Barang Masuk</a>
@@ -201,7 +201,7 @@
                                 <a href="<?php echo site_url('riwayat_perbaikan/index'); ?>"><i class="fa  fa-medkit"></i> Riwayat Perbaikan</a>
                             </li>
                             <li>
-                                <a href="<?php echo site_url('perawatan/index'); ?>"><i class="fa  fa-medkit"></i> Perawatan</a>
+                                <a href="<?php echo site_url('perawatan/add'); ?>"><i class="fa  fa-medkit"></i> Perawatan</a>
                             </li>
                             <li>
                                 <a href="<?php echo site_url('perbaikan/index'); ?>"><i class="fa fa-wrench"></i> Perbaikan</a>

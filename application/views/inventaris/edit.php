@@ -7,7 +7,7 @@
 			<?php echo form_open('inventaris/edit/'.$inventaris['id_inventaris']); ?>
 			<div class="box-body">
           		<div class="row clearfix">
-					<div class="col-md-7">
+					<div class="col-md-4">
 						<label for="id_inventaris" class="control-label">Id Inventaris</label>
 						<div class="form-group">
 							<input type="text" name="id_inventaris" value="<?php echo ($this->input->post('id_inventaris') ? $this->input->post('id_inventaris') : $inventaris['id_inventaris']); ?>" class="form-control" id="id_inventaris" />
@@ -24,7 +24,7 @@
 							</select>
 							</div>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<label for="id_ruangan" class="control-label">Ruangan</label>
 						<div class="form-group">
 							<select class="form-control" name="id_ruangan">
@@ -36,7 +36,7 @@
 							</div>
 					</div>
 					<div class="col-md-6">
-						<label for="ket_kondisi" class="control-label">Keterangan Kodisi</label>
+						<label for="ket_kondisi" class="control-label">Keterangan</label>
 						<div class="form-group">
 							<textarea name="ket_kondisi" class="form-control" id="ket_kondisi"><?php echo ($this->input->post('ket_kondisi') ? $this->input->post('ket_kondisi') : $inventaris['ket_kondisi']); ?></textarea>
 						</div>
