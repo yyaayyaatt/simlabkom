@@ -7,14 +7,8 @@
 			<?php echo form_open_multipart('barang_hp/add'); ?>
 			<div class="box-body">
 				<div class="row clearfix">
-					<div class="col-md-4">
-						<label for="nama_barang" class="control-label">Nama Barang Habis Pakai</label>
-						<div class="form-group">
-							<input type="text" name="nm_barang" value="<?php echo $this->input->post('nama_barang'); ?>" class="form-control" id="nm_barang" />
-						</div>
-					</div>
 					<div class="form-group">
-						<div class="col-md-6">
+						<div class="col-md-4">
 							<label for="kategori">Kategori</label>
 							<select class="form-control" id="id_kategori" name="id_kategori" required>
 								<option value='' disabled selected>- Pilih Kategori -</option>
@@ -30,6 +24,12 @@
 
 							</select>
 						</div>
+						
+					<div class="col-md-4">
+						<label for="nama_barang" class="control-label">Nama Barang Habis Pakai</label>
+						<input type="text" name="nm_barang" value="<?php echo $this->input->post('nama_barang'); ?>" class="form-control" id="nm_barang" />
+
+					</div>
 						<div class="col-md-6">
 							<label for="satuan">Satuan</label>
 							<select class="form-control" name="id_satuan" required>
@@ -39,16 +39,16 @@
 								<?php } ?>
 							</select>
 						</div>
-						<div class="col-md-6">
-							<label for="stok" class="control-label">Stok</label>
-							<div class="form-group">
-								<input type="text" name="stok" value="<?php echo $this->input->post('stok'); ?>" class="form-control" id="stok" />
-							</div>
-						</div>
-						<div class="col-md-3">
+						<div class="col-md-4">
 							<label for="tgl_masuk" class="control-label">Tgl. Masuk</label>
 							<div class="form-group">
 								<input type="date" name="tgl_masuk" class="form-control">
+							</div>
+						</div>
+						<div class="col-md-1">
+							<label for="stok" class="control-label">Stok</label>
+							<div class="form-group">
+								<input type="text" name="stok" value="<?php echo $this->input->post('stok'); ?>" class="form-control" id="stok" />
 							</div>
 						</div>
 					</div>

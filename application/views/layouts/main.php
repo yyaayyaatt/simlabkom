@@ -12,6 +12,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.0/morris.min.js"></script>
 
     <link rel="stylesheet" href="<?php echo site_url('resources/css/bootstrap.min.css'); ?>">
+    <!-- jQuery 2.2.3 -->
+    <script src="<?php echo site_url('resources/js/jquery-2.2.3.min.js'); ?>"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="<?php echo site_url('resources/js/bootstrap.min.js'); ?>"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo site_url('resources/css/font-awesome.min.css'); ?>">
     <!-- Ionicons -->
@@ -24,7 +28,32 @@
              folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?php echo site_url('resources/css/_all-skins.min.css'); ?>">
     <script type="text/javascript" src="chartjs/Chart.js"></script>
-    
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#id_kategori').change(function(){ 
+                var id=$(this).val();
+                $.ajax({
+                    url : "<?php echo site_url('barang/get_merk_kat');?>",
+                    method : "POST",
+                    data : {id: id},
+                    async : true,
+                    dataType : 'json',
+                    success: function(data){
+                         
+                        var html = '';
+                        var i;
+                        for(i=0; i<data.length; i++){
+                            html += '<option value='+data[i].id_merk+'>'+data[i].nm_merk+'</option>';
+                        }
+                        $('#id_merk').html(html);
+ 
+                    }
+                });
+                return false;
+            }); 
+             
+        });
+    </script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -150,7 +179,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="<?php echo site_url('inventaris/index'); ?>"><i class="fa fa-map-marker"></i> Lokasi</a>
+                                <a href="<?php echo site_url('inventaris/index'); ?>"><i class="fa fa-map-marker"></i> Cari</a>
                             </li>
                             <li>
                                 <a href="<?php echo site_url('barang_masuk/index'); ?>"><i class="fa fa-arrow-circle-o-left"></i> Barang Masuk</a>
@@ -172,7 +201,7 @@
                                 <a href="<?php echo site_url('riwayat_perbaikan/index'); ?>"><i class="fa  fa-medkit"></i> Riwayat Perbaikan</a>
                             </li>
                             <li>
-                                <a href="<?php echo site_url('perawatan/index'); ?>"><i class="fa  fa-medkit"></i> Perawatan</a>
+                                <a href="<?php echo site_url('perawatan/add'); ?>"><i class="fa  fa-medkit"></i> Perawatan</a>
                             </li>
                             <li>
                                 <a href="<?php echo site_url('perbaikan/index'); ?>"><i class="fa fa-wrench"></i> Perbaikan</a>
@@ -326,10 +355,7 @@
         <div class="control-sidebar-bg"></div>
     </div>
     <!-- ./wrapper -->
-    <!-- jQuery 2.2.3 -->
-    <script src="<?php echo site_url('resources/js/jquery-2.2.3.min.js'); ?>"></script>
-    <!-- Bootstrap 3.3.6 -->
-    <script src="<?php echo site_url('resources/js/bootstrap.min.js'); ?>"></script>
+    
     <!-- FastClick -->
     <script src="<?php echo site_url('resources/js/fastclick.js'); ?>"></script>
     <!-- AdminLTE App -->

@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Lokasi Inventaris Barang</h3>
+                <h3 class="box-title">.:: Cari Inventaris ::.</h3>
                 <div class="box-tools">
                 </div>
             </div>
@@ -19,7 +19,7 @@
                         <th>No.</th>
                         <th>Id Inventaris</th>
                         <th>Nama Barang</th>
-                        <th>Kondisi</th>
+                        <th>Keterangan</th>
                         <th>Lokasi</th>
                         <th>Actions</th>
                     </tr>

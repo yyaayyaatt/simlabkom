@@ -12,6 +12,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.0/morris.min.js"></script>
 
     <link rel="stylesheet" href="<?php echo site_url('resources/css/bootstrap.min.css'); ?>">
+    <!-- jQuery 2.2.3 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="<?php echo site_url('resources/js/bootstrap.min.js'); ?>"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo site_url('resources/css/font-awesome.min.css'); ?>">
     <!-- Ionicons -->
@@ -141,7 +145,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="<?php echo site_url('inventaris/index'); ?>"><i class="fa fa-map-marker"></i> Lokasi</a>
+                                <a href="<?php echo site_url('inventaris/index'); ?>"><i class="fa fa-map-marker"></i> Cari</a>
                             </li>
                             <li>
                                 <a href="<?php echo site_url('barang_masuk/index'); ?>"><i class="fa fa-arrow-circle-o-left"></i> Barang Masuk</a>
@@ -160,7 +164,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="<?php echo site_url('perawatan/index'); ?>"><i class="fa  fa-medkit"></i> Perawatan</a>
+                                <a href="<?php echo site_url('perawatan/add'); ?>"><i class="fa  fa-medkit"></i> Perawatan</a>
                             </li>
                             <li>
                                 <a href="<?php echo site_url('perbaikan/index'); ?>"><i class="fa fa-wrench"></i> Perbaikan</a>
@@ -300,10 +304,7 @@
     </div>
     <!-- ./wrapper -->
 
-    <!-- jQuery 2.2.3 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Bootstrap 3.3.6 -->
-    <script src="<?php echo site_url('resources/js/bootstrap.min.js'); ?>"></script>
+    
     <!-- FastClick -->
     <script src="<?php echo site_url('resources/js/fastclick.js'); ?>"></script>
     <!-- AdminLTE App -->

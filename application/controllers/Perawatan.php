@@ -42,7 +42,7 @@ class Perawatan extends CI_Controller
             $from = $this->uri->segment(3);
             $this->pagination->initialize($config);
             $data['perawatan'] = $this->Perawatan_model->get_all_perawatan($config['per_page'], $from);
-            // $data['barang'] = $this->Barang_model->get_all_barang();
+             
 
             $data['_view'] = 'perawatan/index';
             if ($this->session->userdata("level") == 'admin') {
@@ -58,7 +58,15 @@ class Perawatan extends CI_Controller
     /*
      * Adding a new perawatan
      */
-
+    function get_inventaris()
+    {
+        // load model dan form helper
+        if ($id_ruangan = $this->input->post('id')) {
+            $data = $this->Perawatan_model->get_inventaris($id_ruangan);
+            // $this->load->view('barang',$kategori);
+            echo json_encode($data);
+        }
+    }
     function add()
     {
         if (isset($_POST) && count($_POST) > 0) {
@@ -72,6 +80,7 @@ class Perawatan extends CI_Controller
             $perawatan_id = $this->Perawatan_model->add_perawatan($params);
             redirect('perawatan/index');
         } else {
+            $data['ruangan'] = $this->Perawatan_model->get_lokasi();
             $data['kondisi'] = $this->Perawatan_model->get_all_kondisi();
             $data['user'] = $this->Perawatan_model->get_all_user();
             $data['inventaris'] = $this->Perawatan_model->get_all_inventaris();
