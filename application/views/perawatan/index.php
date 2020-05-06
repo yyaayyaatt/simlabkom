@@ -13,7 +13,7 @@
                         <th>No.</th>
                         <th>Nama Barang</th>
                         <th>tanggal</th>
-                        <th>Kondisi</th>
+                      <!--  <th>Kondisi</th> -->
                         <th>Pengecek</th>
                         <th>Diagnosa</th>
                         <th>Perbaikan</th>
@@ -25,7 +25,7 @@
                             <td><?php echo $x++; ?></td>
                             <td><?php echo $t['nm_barang']; ?></td>
                             <td><?php echo date("d-m-Y", strtotime($t['tgl_perawatan'])) ?></td>
-                            <td><?php echo $t['nm_kondisi']; ?></td>
+                           <!--   <td><?php echo $t['nm_kondisi']; ?></td> -->
                             <td><?php echo $t['nama']; ?></td>
                             <td width="200" style="text-align:justify"><?php echo $t['diagnosa']; ?></td>
                             <?php if ($t['perbaikan'] == 'sudah') { ?>

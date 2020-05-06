@@ -1,3 +1,29 @@
+<script type="text/javascript">
+        $(document).ready(function(){
+            $('#id_ruangan').change(function(){ 
+                var id=$(this).val();
+                $.ajax({
+                    url : "<?php echo site_url('perawatan/get_inventaris');?>",
+                    method : "POST",
+                    data : {id: id},
+                    async : true,
+                    dataType : 'json',
+                    success: function(data){
+                         
+                        var html = '';
+                        var i;
+                        for(i=0; i<data.length; i++){
+                            html += '<option value='+data[i].id_inventaris+'>'+data[i].id_inventaris+' - '+data[i].nm_barang+'</option>';
+                        }
+                        $('#id_inventaris').html(html);
+ 
+                    }
+                });
+                return false;
+            }); 
+             
+        });
+    </script>
 <div class="row">
     <div class="col-md-12">
       	<div class="box box-info">
@@ -7,22 +33,20 @@
             <?php echo form_open('perawatan/add'); ?>
           	<div class="box-body">
           		<div class="row clearfix">
-				  <div class="col-md-6">
-						<label for="id_barang">Barang</label>
-							<select class="form-control" name="id_inventaris" required>
-							<option value='' disabled selected>- Pilih Barang -</option>
-								<?php foreach($inventaris as $la){  ?>
-								<option value="<?php echo $la['id_inventaris']; ?>"><?php echo $la['id_inventaris'].' - '.$la['nm_barang'].' - '.$la['nm_ruangan']; ?>   </option>
-								<?php } ?>
+					<div class="col-md-6">
+						<label for="id_kondisi">Lokasi Inventaris</label>
+							<select class="form-control" id="id_ruangan"name="id_ruangan" required>
+							<option value='' disabled selected>- Pilih Lokasi -</option>
+								<?php foreach($ruangan as $la){ ?>
+									<option value="<?php echo $la['id_ruangan']; ?>"><?php echo $la['nm_ruangan']; ?>   </option>
+									<?php } ?>
 							</select>
 					</div>
-					<div class="col-md-6">
-						<label for="id_kondisi">Kondisi</label>
-							<select class="form-control" name="id_kondisi" required>
-							<option value='' disabled selected>- Pilih Kondisi -</option>
-								<?php foreach($kondisi as $la){ ?>
-									<option value="<?php echo $la['id_kondisi']; ?>"><?php echo $la['nm_kondisi']; ?>   </option>
-									<?php } ?>
+				  <div class="col-md-6">
+						<label for="id_barang">Barang</label>
+							<select class="form-control" id="id_inventaris"name="id_inventaris" required>
+							<option value='' disabled selected>- Pilih Barang -</option>
+								
 							</select>
 					</div>
 					<div class="col-md-6">
@@ -48,8 +72,9 @@
 			</div>
           	<div class="box-footer">
             	<button type="submit" class="btn btn-success">
-            		<i class="fa fa-check"></i> Save
-            	</button>
+            		<i class="fa fa-check"></i> Save</button>
+					<a href="<?php echo site_url('perawatan/index/'); ?>" class="btn btn-danger"><span class="fa fa-bars"></span> Lihat</a>
+            	
           	</div>
             <?php echo form_close(); ?>
       	</div>

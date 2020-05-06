@@ -11,9 +11,10 @@
 					<div class="col-md-6">
 						<label for="id_perawatan">Perangkat Bermasalah</label>
 						<select class="form-control" name="id_perawatan" required>
-							<option value='' disabled selected>- Pilih Barang -</option>
-							<?php foreach ($perawatan as $la) {  ?>
-								<option value="<?php echo $la['id_perawatan']; ?>"><?php echo $la['id_inventaris'].' - '.$la['nm_barang'].' - '.$la['diagnosa']; ?> </option>
+						<option value='' disabled selected>- Pilih Barang -</option>
+							<?php foreach ($perawatan as $la) {  
+								$selected = ($la['id_perawatan'] == $perawatan['id_perawatan']) ? 'selected' : ''; ?>
+								<option value="<?php echo $la['id_perawatan']; ?>"<?= $selected; ?> class=""><?php echo $la['id_inventaris'] . ' - ' . $la['nm_barang'] . ' - ' . $la['diagnosa']; ?> </option>
 							<?php } ?>
 						</select>
 					</div>

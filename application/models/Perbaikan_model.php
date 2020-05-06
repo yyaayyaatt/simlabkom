@@ -39,7 +39,7 @@ class Perbaikan_model extends CI_Model
         $this->db->join('asisten c', 'c.id_asisten=a.id_cek', 'left');
         $this->db->join('inventaris d', 'd.id_inventaris=b.id_inventaris', 'left');
         $this->db->join('barang e', 'e.id_barang=d.id_barang', 'left');
-        $this->db->where('b.perbaikan', 'sudah');
+        //$this->db->where('b.perbaikan', 'sudah');
         $this->db->order_by('a.id_perbaikan', 'asc');
         $this->db->limit($number, $offset);
         $query = $this->db->get();
