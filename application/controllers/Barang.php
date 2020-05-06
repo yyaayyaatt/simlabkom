@@ -250,7 +250,7 @@ class Barang extends CI_Controller
                 redirect('barang/index');
             } else {
                 $data['kat'] = $this->Barang_model->get_all_kategori();
-                $data['merk'] = $this->Barang_model->get_all_merk();
+                $data['merk'] = $this->Barang_model->get_merk_kat($this->input->post('id_kategori'));
                 $data['satuan'] = $this->Barang_model->get_all_satuan();
                 $data['ruangan'] = $this->Barang_model->get_all_ruangan();
                 $data['_view'] = 'barang/edit';

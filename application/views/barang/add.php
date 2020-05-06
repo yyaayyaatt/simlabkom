@@ -1,29 +1,3 @@
-<script type="text/javascript">
-	$(document).ready(function() {
-
-		$('#id_kategori').change(function() {
-			var id = $('#id_kategori').val(this.value);
-				$.ajax({
-					url: "<?php echo site_url('barang/get_merk_kat'); ?>",
-					method: "POST",
-					data: {id:id},
-					async: true,
-					dataType: 'json',
-					success: function(data) {
-
-						var i;
-						for (i = 0; i < data.length; i++) {
-							html += '<option value=' + data[i].id_merk + '>' + data[i].nm_merk + '</option>';
-						}
-						$('#id_merk').html();
-
-					}
-				});
-			return false;
-		});
-
-	});
-</script>
 
 <div class="row">
 	<div class="col-md-12">
